@@ -1,0 +1,49 @@
+{
+    "data": [
+      {
+          "title": "titulo 1 ",
+          "thumb": "../assets/1.png",
+          "type": "project",
+          "description": "esse é um projeto X",
+          "tags": [
+              {"pt":"Processing"}, {"pt":"openFramworks"}, {"pt":"JavaScript"}
+          ]
+      },
+      {
+          "title": "titulo 2 ",
+          "thumb": "../assets/1.png",
+          "type": "project",
+          "description": "esse é um projeto Y",
+          "tags": [
+            {"pt":"Vue"}, {"pt":"Web"}, {"pt":"JavaScript"}
+        ]
+      },
+      {
+          "title": "titulo 3 ",
+          "thumb": "../assets/1.png",
+          "type": "project",
+          "description": "esse é um projeto Z",
+          "tags": [
+            {"pt":"Processing"}, {"pt":"python"}, {"pt":"Machine Learning"}, {"pt":"JavaScript"}
+        ]
+      },
+      {
+          "title": "titulo 4 ",
+          "thumb": "../assets/1.png",
+          "type": "project",
+          "description": "esse é um projeto Y",
+          "tags": [
+            {"pt":"sound"}, {"pt":"sculpture"}
+        ]
+      },
+      {
+          "title": "titulo 5 ",
+          "thumb": "../assets/1.png",
+          "type": "project",
+          "description": "esse é um projeto Z",
+          "tags": [
+            {"pt":"street art"}, {"pt":"python"}, {"pt":"Machine Learning"}
+        ]
+      }
+    ]
+  }

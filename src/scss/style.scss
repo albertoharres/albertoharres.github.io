@@ -1,0 +1,40 @@
+body {
+    background: grey;   
+}
+.caption {
+    color: white;
+}
+
+#app {
+    .title {
+        letter-spacing: 0.3em;
+    }
+    #tagcloud {
+        padding-bottom: 20px;
+        pointer-events: none;
+        .tag {
+            display: -webkit-inline-box;
+            transition: all 0.3s;
+            pointer-events: auto;
+            margin: 0px 5px;
+            color: white;
+            font-weight: 600;
+            opacity: 0.55;
+            &.active{
+                opacity: 1;
+            }
+            &:hover{
+                //opacity: 1;
+                text-decoration: none;
+            }
+        }
+    }
+    .gallery {
+        .box{
+            //transition: all 0.5s;
+            &.hide{
+                display: none;
+            }
+        }
+    }
+}
