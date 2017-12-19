@@ -4,6 +4,11 @@ class App {
   constructor(){
     this.$el = $('#app');
     this.$home = $('#home');
+    this.$tagcloud = $('#tagcloud');
+    this.$pages = $('#app .pages')
+    this.$projects = $('#app .projects');
+    this.$galleries = $('#app .galleries')
+    this.$curPage = null;
     this.tagcloud = null;
     this.pages = [];
   }
@@ -14,14 +19,28 @@ class App {
   delegateEvents(){
     var self = this;
     // tags
-    $('#tagcloud').on('click', function(event){
-      $(this).find('.tag').each(function( index ) {
-        if($(this).hasClass('active')) $(this).removeClass('active');
-      });
-      $( event.target ).toggleClass('active')
-      self.onTagClick(event.target.innerText);
+    this.$tagcloud.on('click', function(event){
+      if($( event.target ).hasClass('active')){
+        $( event.target ).toggleClass('active');
+        self.onTagClick(null);
+      } else {
+        $(this).find('.tag').each(function( index ) {
+          if($(this).hasClass('active')) $(this).removeClass('active');
+        });
+        $( event.target ).toggleClass('active')
+        self.onTagClick(event.target.innerText);
+      }      
     })
-
+    // home || title
+    $('.title-home').on('click', function(event){
+      self.reset();
+      if(self.$pages.hasClass('hide')){       
+        self.$pages.toggleClass('hide')
+        console.log(self.$curPage)
+        if(self.$curPage.hasClass('show')) self.$curPage.toggleClass('show')
+      }   
+    })
+    // on window resize
     $( window ).resize(function(ev) {     
       for(var p in self.pages){
         self.pages[p].animateBox();   
@@ -40,12 +59,22 @@ class App {
         }
       })
     }).done(function(){
-      //console.log("init!", self.pages)
       self.setTags(tags)
       for(var p in self.pages){
         self.pages[p].render();   
       }
     });
+  }
+  reset(){
+    // reset tags
+    this.onTagClick(null);
+    this.$tagcloud.find('.tag').each(function( index ) {
+      if($(this).hasClass('active')) $(this).removeClass('active');
+    });
+    for(var p in this.pages){
+      this.pages[p].animateBox();   
+    }  
+    // reset page boxes
   }
   setTags(tags){
     var tagList = []; 
@@ -63,18 +92,24 @@ class App {
         tagList.push(tags[t]);
       }
     }
-    //console.log(tagList)
     this.tagcloud = new Tags(tagList);   
     var self = this; 
     this.tagcloud.render()
   }    
-  onTagClick(tagString){
+  onTagClick(tagString){    
+    var index = 0;
     for(var p in this.pages){
-      if(!this.pages[p].hasTag(tagString)){
-        this.pages[p].hide();
+      if(tagString != null){
+        if(!this.pages[p].hasTag(tagString)){
+          this.pages[p].hide();
+        } else {
+          this.pages[p].show(index);
+          index ++ ;
+        }
       } else {
-        this.pages[p].show();
-      }
+        this.pages[p].show(index);
+        index ++ ;
+      }      
     }
   }
   onPageClick(){

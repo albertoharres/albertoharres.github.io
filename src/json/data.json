@@ -28,11 +28,34 @@
       {
           "title": "titulo 2 ",
           "thumb": "../assets/1.png",
-          "type": null,
           "description": "esse é um projeto Y",
           "tags": [
             {"pt":"Vue"}, {"pt":"Web"}, {"pt":"JavaScript"}
-        ]
+        ],
+          "type": "gallery",
+          "subtitle": "this is my subtitle",
+          "texts": [
+            {"text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim."},
+            {"text": "Abra ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim."}
+          ],
+          "imgs": [
+            {
+              "src": "http://placehold.it/750x500",
+              "caption": "this is a picture 1"
+            },
+            {
+              "src": "http://via.placeholder.com/1024x800",
+              "caption": "this is a picture 2"
+            },
+            {
+              "src": "http://placehold.it/900x900",
+              "caption": "this is a picture 1"
+            },
+            {
+              "src": "http://via.placeholder.com/1280x1024",
+              "caption": "this is a picture 2"
+            }
+        ]          
       },
       {
           "title": "titulo 3 ",

@@ -8,7 +8,7 @@ class Page {
       this.template =
       `
       <div id="${this.id}" class="box col-lg-3 col-md-4 col-xs-6">
-          <a href="#" class="d-block mb-2 h-100">
+          <a href="#${pageObj.title}" class="d-block mb-2 h-100">
               <img class="img-fluid img-thumbnail" src="${pageObj.thumb}" title="${pageObj.title}">
               <div class="caption">
                 <p>${pageObj.title}</p>
@@ -22,7 +22,17 @@ class Page {
     }
     _setContent(pageObj){
         this.content = null;
-        if(pageObj.type == "project") this.content = new Project(pageObj)            
+        this.type = pageObj.type
+        switch(this.type){
+            case "project":
+            this.content = new Project(pageObj)
+            this.content.render()  
+                break;
+            case "gallery":
+            this.content = new Gallery(pageObj)  
+            this.content.render()
+                break;
+        }
     }
     hasTag(tag){      
         var hasFound = null;
@@ -37,17 +47,22 @@ class Page {
         if(hasFound == false) return false;
     }
     hide(){
-        if(!this.$el.hasClass('has')){
+        if(!this.$el.hasClass('hide')){
             this.$el.toggleClass("hide")     
         } 
     }
-    show(){
-        if(this.$el.hasClass('has')){
+    show(index){    
+        if(this.$el.hasClass('hide')){
             this.$el.toggleClass("hide")                 
         }
+        if(index != null || index != undefined ) {
+            this.index = index;
+        }
+            this.animateBox()
+        
     }
     render() {
-        $('#app .gallery').append(this.template);
+        app.$pages.append(this.template);
         this.delegateEvents();    
         this.animateBox();
     }
@@ -55,13 +70,13 @@ class Page {
       var self = this;
       this.$el = $('#' + this.id);
       this.$el.on('click', function(ev){
-        console.log('click', self.content)
-        if(self.content != null){
-          self.content.render();
-          app.$home.addClass('hide')         
+        if(self.content != null){            
+          self.content.show();
+          app.$curPage = self.content.$el;
+          app.$pages.addClass('hide');         
         }
       })
-    }
+    }    
     animateBox(){
         var w = $(window).width();
         var isCentralized, isMobile;
@@ -89,6 +104,8 @@ class Page {
 
         var rest = appWidth - ((width + margin*2)*maxCols)
 
+        if(true) console.log("width", width, "w", w)
+
         if(isCentralized && !isMobile){
             this.$el.parent().css('margin-left',rest/2+'px');
         } else {
@@ -100,6 +117,10 @@ class Page {
             this.$el.css({transform: 'translateX('+x+'px) translateY('+y+'px)'})
         } else {
             this.$el.css({transform: 'translateX('+0+'px) translateY('+0+'px)'})
+        }
+        
+        function transition(){
+            
         }
     }
   }  
