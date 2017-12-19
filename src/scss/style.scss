@@ -1,3 +1,10 @@
+@keyframes boxOut {
+    0%   {background-color: red;}
+    25%  {background-color: yellow;}
+    50%  {background-color: blue;}
+    100% {display: none; transform: translate(0, 300px);}
+}
+
 body {
     background: grey;   
 }
@@ -9,32 +16,42 @@ body {
     .title {
         letter-spacing: 0.3em;
     }
-    #tagcloud {
-        padding-bottom: 20px;
-        pointer-events: none;
-        .tag {
-            display: -webkit-inline-box;
-            transition: all 0.3s;
-            pointer-events: auto;
-            margin: 0px 5px;
-            color: white;
-            font-weight: 600;
-            opacity: 0.55;
-            &.active{
-                opacity: 1;
-            }
-            &:hover{
-                //opacity: 1;
-                text-decoration: none;
+    #home {
+        #tagcloud {
+            padding-bottom: 20px;
+            pointer-events: none;
+            .tag {
+                display: -webkit-inline-box;
+                transition: all 0.3s;
+                pointer-events: auto;
+                margin: 0px 5px;
+                color: white;
+                font-weight: 600;
+                opacity: 0.55;
+                &.active{
+                    opacity: 1;
+                }
+                &:hover{
+                    //opacity: 1;
+                    text-decoration: none;
+                }
             }
         }
-    }
-    .gallery {
-        .box{
-            //transition: all 0.5s;
-            &.hide{
-                display: none;
+        .gallery {
+            .box{
+                @media (min-width: 768px) {
+                    position: absolute;
+                }
+                //max-width: 25%;
+                //transition: all 0.5s;
+                &.hide{
+                    //display: none;
+                    animation: boxOut 5s
+                }
             }
+        }
+        &.hide {
+            display: none;
         }
     }
     .project {

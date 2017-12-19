@@ -9,6 +9,7 @@ class Tags {
       `
     }
     render() {
-        $('#tagcloud').append(this.template);
+      this.$el =  $('#tagcloud')
+        this.$el.append(this.template);
     }
 }

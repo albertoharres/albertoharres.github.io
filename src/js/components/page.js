@@ -1,6 +1,7 @@
 class Page {
-    constructor(pageObj) {
+    constructor(pageObj, index) {
       console.log("pageObj", pageObj)
+      this.index = index;
       this.tags = pageObj.tags
       this.id = this._generateId();
       this._setContent(pageObj)      
@@ -42,12 +43,13 @@ class Page {
     }
     show(){
         if(this.$el.hasClass('has')){
-            this.$el.toggleClass("hide")     
+            this.$el.toggleClass("hide")                 
         }
     }
     render() {
         $('#app .gallery').append(this.template);
         this.delegateEvents();    
+        this.animateBox();
     }
     delegateEvents(){
       var self = this;
@@ -56,7 +58,48 @@ class Page {
         console.log('click', self.content)
         if(self.content != null){
           self.content.render();
+          app.$home.addClass('hide')         
         }
       })
+    }
+    animateBox(){
+        var w = $(window).width();
+        var isCentralized, isMobile;
+        if(w >= 992){
+          isCentralized = false
+        } else {
+          isCentralized = true;
+          if(w < 768){
+            isMobile = true;
+          } else {
+            isMobile = false;
+          }
+        }      
+        // calc 
+        var width = this.$el.width();
+        var height = this.$el.outerHeight();
+        var margin = 5;      
+        var appWidth = app.$el.width();
+
+        var maxCols = Math.floor(appWidth/(width + margin)) 
+        var col = this.index % maxCols;
+        var row = Math.floor(this.index / maxCols);                 
+        var x = col * width;
+        var y = row * width;
+
+        var rest = appWidth - ((width + margin*2)*maxCols)
+
+        if(isCentralized && !isMobile){
+            this.$el.parent().css('margin-left',rest/2+'px');
+        } else {
+            this.$el.parent().css('margin-left',0+'px');
+        }
+
+        //this.$el.css('transform', 'translate(' + x + 'px)');
+        if(!isMobile){
+            this.$el.css({transform: 'translateX('+x+'px) translateY('+y+'px)'})
+        } else {
+            this.$el.css({transform: 'translateX('+0+'px) translateY('+0+'px)'})
+        }
     }
   }  
