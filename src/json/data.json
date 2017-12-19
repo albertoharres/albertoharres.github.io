@@ -1,18 +1,34 @@
 {
     "data": [
       {
-          "title": "titulo 1 ",
+          "title": "titulo 1",
           "thumb": "../assets/1.png",
           "type": "project",
           "description": "esse é um projeto X",
           "tags": [
               {"pt":"Processing"}, {"pt":"openFramworks"}, {"pt":"JavaScript"}
-          ]
+          ],
+          "type": "project",
+          "subtitle": "this is my subtitle",
+          "texts": [
+            {"text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim."},
+            {"text": "Abra ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim."}
+          ],
+          "imgs": [
+            {
+              "src": "http://placehold.it/750x500",
+              "caption": "this is a picture 1"
+            },
+            {
+              "src": "http://via.placeholder.com/600x900",
+              "caption": "this is a picture 2"
+            }
+          ]          
       },
       {
           "title": "titulo 2 ",
           "thumb": "../assets/1.png",
-          "type": "project",
+          "type": null,
           "description": "esse é um projeto Y",
           "tags": [
             {"pt":"Vue"}, {"pt":"Web"}, {"pt":"JavaScript"}
@@ -21,7 +37,7 @@
       {
           "title": "titulo 3 ",
           "thumb": "../assets/1.png",
-          "type": "project",
+          "type": null,
           "description": "esse é um projeto Z",
           "tags": [
             {"pt":"Processing"}, {"pt":"python"}, {"pt":"Machine Learning"}, {"pt":"JavaScript"}
@@ -30,7 +46,7 @@
       {
           "title": "titulo 4 ",
           "thumb": "../assets/1.png",
-          "type": "project",
+          "type": null,
           "description": "esse é um projeto Y",
           "tags": [
             {"pt":"sound"}, {"pt":"sculpture"}
@@ -39,7 +55,7 @@
       {
           "title": "titulo 5 ",
           "thumb": "../assets/1.png",
-          "type": "project",
+          "type": null,
           "description": "esse é um projeto Z",
           "tags": [
             {"pt":"street art"}, {"pt":"python"}, {"pt":"Machine Learning"}

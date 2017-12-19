@@ -14,13 +14,12 @@ class App {
     var self = this;
     // tags
     $('#tagcloud').on('click', function(event){
-      console.log($( event.target ))
       $(this).find('.tag').each(function( index ) {
         if($(this).hasClass('active')) $(this).removeClass('active');
       });
       $( event.target ).toggleClass('active')
       self.onTagClick(event.target.innerText);
-   })
+    })
   }
   loadJson(json){
     var tags = [];
@@ -28,13 +27,13 @@ class App {
     $.getJSON( json, function( data ) {  
       $.each( data, function( key, val ) {    
         for(var p in val){      
-          var page = new Page(val[p].title, val[p].thumb, val[p].type, val[p].description, val[p].tags);      
+          var page = new Page(val[p]);      
           self.pages.push(page);
           val[p].tags.map(tag => tags.push(tag))
         }
       })
     }).done(function(){
-      console.log("init!", self.pages)
+      //console.log("init!", self.pages)
       self.setTags(tags)
       for(var p in self.pages){
         self.pages[p].render();   
@@ -57,7 +56,7 @@ class App {
         tagList.push(tags[t]);
       }
     }
-    console.log(tagList)
+    //console.log(tagList)
     this.tagcloud = new Tags(tagList);   
     var self = this; 
     this.tagcloud.render()

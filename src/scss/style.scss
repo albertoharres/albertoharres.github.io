@@ -37,4 +37,23 @@ body {
             }
         }
     }
+    .project {
+        display: none;
+        margin: 10px 0;
+        opacity: 0;
+        transition: opacity 0.3s;
+        .project-title {
+            margin-top: 0px !important;
+        }
+        .imgs{
+            text-align: right;
+            .img-fluid{
+                margin-bottom: 10px;
+            }
+        }
+        &.show{
+            display: block;
+            opacity: 1;
+        }
+    }
 }

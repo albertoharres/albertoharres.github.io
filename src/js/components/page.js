@@ -1,25 +1,27 @@
 class Page {
-    constructor(title, thumb, type, description, tags) {    
-      this.title = title;
-      this.thumb = thumb;
-      this.type = type;
-      this.description = description;
-      this.tags = tags;
-      this.id = this._generateId();      
+    constructor(pageObj) {
+      console.log("pageObj", pageObj)
+      this.tags = pageObj.tags
+      this.id = this._generateId();
+      this._setContent(pageObj)      
       this.template =
       `
       <div id="${this.id}" class="box col-lg-3 col-md-4 col-xs-6">
           <a href="#" class="d-block mb-2 h-100">
-              <img class="img-fluid img-thumbnail" src="${this.thumb}" title="${this.title}">
+              <img class="img-fluid img-thumbnail" src="${pageObj.thumb}" title="${pageObj.title}">
               <div class="caption">
-                <p>${this.title}</p>
+                <p>${pageObj.title}</p>
               </div>
           </a>
       </div>
       `
-    }
+    }    
     _generateId(){
         return '_' + Math.random().toString(36).substr(2, 9);        
+    }
+    _setContent(pageObj){
+        this.content = null;
+        if(pageObj.type == "project") this.content = new Project(pageObj)            
     }
     hasTag(tag){      
         var hasFound = null;
@@ -45,6 +47,16 @@ class Page {
     }
     render() {
         $('#app .gallery').append(this.template);
-        this.$el = $('#' + this.id);
+        this.delegateEvents();    
+    }
+    delegateEvents(){
+      var self = this;
+      this.$el = $('#' + this.id);
+      this.$el.on('click', function(ev){
+        console.log('click', self.content)
+        if(self.content != null){
+          self.content.render();
+        }
+      })
     }
   }  
