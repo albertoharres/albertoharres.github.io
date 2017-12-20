@@ -27,8 +27,22 @@ a {
 }
 
 #app {
-    .title {
-        letter-spacing: 0.3em;
+    .heading{       
+        .title {
+            @media (min-width: 992px) {
+                display: -webkit-inline-box;
+            }
+            letter-spacing: 0.3em;
+        }
+        .menu{
+            a {
+                padding: 5px;
+            }
+            @media (min-width: 992px) {
+                margin-left: 20px;
+                display: -webkit-inline-box;
+            }
+    }
     }
     #home {
         #tagcloud {
