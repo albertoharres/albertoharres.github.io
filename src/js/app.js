@@ -10,34 +10,42 @@ class App {
     this.$galleries = $('#app .galleries')
     this.$curPage = null;
     this.tagcloud = null;
+    this.route = "";
     this.pages = [];
   }
   init(json){   
     this.delegateEvents();
+    var pathArray = window.location.pathname.split( '/' );
+    this.route = window.location.hash.substr(1);
     this.loadJson(json)    
   }
   delegateEvents(){
     var self = this;
-    // tags
+    // on tag click
     this.$tagcloud.on('click', function(event){
+      //if active, disable 
       if($( event.target ).hasClass('active')){
         $( event.target ).toggleClass('active');
+        // clear filter
         self.onTagClick(null);
       } else {
+        // if unactive, enable
         $(this).find('.tag').each(function( index ) {
           if($(this).hasClass('active')) $(this).removeClass('active');
         });
-        $( event.target ).toggleClass('active')
+        $( event.target ).toggleClass('active');
+        // set filter by tagname
         self.onTagClick(event.target.innerText);
       }      
     })
     // home || title
     $('.title-home').on('click', function(event){
+      // reset values
       self.reset();
       if(self.$pages.hasClass('hide')){       
         self.$pages.toggleClass('hide')
         console.log(self.$curPage)
-        if(self.$curPage.hasClass('show')) self.$curPage.toggleClass('show')
+        if(self.curPage.$el.hasClass('show')) self.curPage.$el.toggleClass('show')
       }   
     })
     // on window resize
@@ -63,7 +71,51 @@ class App {
       for(var p in self.pages){
         self.pages[p].render();   
       }
+      self.goToPage(self.route)
     });
+  }
+  goToPage(route){
+    //console.log("route", route)
+    var self = this;
+    var hasFound = false;
+      for(var p in this.pages){
+      if(  this.pages[p].route == route){     
+        //
+        // wait till content is loaded
+        //   
+        hasFound = true;
+        if(!this.$pages.hasClass('hide')) this.$pages.toggleClass('hide')
+        this.curPage = this.pages[p].content;
+        console.log("this.curPage", this.curPage.$el)
+        //if(this.curPage.isloaded){
+        self.curPage.show();
+
+        // display tags of current page
+        self.$tagcloud.find('.tag').each(function( index ) {
+          var tag = $(this).text();
+          var pagtags =  self.pages[p].tags;
+          for(var t in pagtags){
+            if(pagtags[t].pt == tag){
+              console.log(pagtags[t], tag)
+              if(!$(this).hasClass('active')) $(this).toggleClass('active');
+            }
+          }
+        });
+
+        //} else {
+        //  this.preloadImages(this.curPage.getImages(), function(){
+        //    console.log("show")
+        //    self.curPage.show();
+        //  })
+        //}        
+      }    
+    }
+    if(!hasFound){
+      if(this.$pages.hasClass('hide')) this.$pages.toggleClass('hide')
+    }                 
+  } 
+  goHome(){
+
   }
   reset(){
     // reset tags
@@ -112,9 +164,25 @@ class App {
       }      
     }
   }
-  onPageClick(){
-    
-  }
+  preloadImages(imgs, callback) {
+    console.log("preload!")
+    var count = imgs.length;
+    if(count === 0) {
+        callback();
+    }
+    var loaded = 0;
+    $(imgs).each(function() {
+      console.log("onload")
+      $(this).on('load', function() {
+        loaded++;
+        console.log("loaded", loaded)
+        if (loaded === count) {
+            console.log("all loaded!")
+            callback();
+        }
+      });
+    });
+  };
 }
 
 app = new App();

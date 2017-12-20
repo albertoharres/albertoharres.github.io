@@ -5,7 +5,7 @@
 
 @keyframes boxIn {
     0%     { opacity: 0;}
-    100%   { opacity: 1; }
+    100%   { opacity: 1;}
 }
 
 body {
@@ -50,6 +50,7 @@ a {
         .pages {            
             transition: opacity 1s;
             .box{
+                pointer-events: auto;
                 opacity: 1;
                 transition: transform 0.5s, opacity 0.5s;
                 min-height: 0;
@@ -61,44 +62,75 @@ a {
                 }
                 animation:boxIn 0.5s both;
                 &.hide{
+                    pointer-events: none;
                     height: 0;
                     animation:boxOut 0.5s both;
                 }
             }
             &.hide {
                 pointer-events: none;
-                opacity: 0;            
+                opacity: 0;      
+                .box{
+                    pointer-events: none;
+                    height: 0;
+                }      
             }
         }        
     }
     .page-container{
         margin: 10px 0;
+        transition: all 1s;        
         .projects {
-            .project{         
-                display: none;
-                opacity: 0;
-                transition: opacity 0.3s;
-                .project-title {
-                    margin-top: 0px !important;
+            .page {
+                height: 0;
+                pointer-events: none;
+                z-index: -1;
+                transition: opacity 1s;
+                opacity: 0; 
+                &.show{
+                    pointer-events: auto;
+                    z-index: 10;
+                    opacity: 1;
+                    .imgs{
+                        transform: translateX(0);                        
+                    }
+                    .text{
+                        transform: translateX(0);  
+                    }
                 }
+            }
+            .project{
+                .text{
+                    transition: transform 0.8s;
+                    @media (min-width: 768px) {                                        
+                        transform: translateX(100vw);                    
+                    }
+                    .project-title {
+                        margin-top: 0px !important;
+                    }
+                }          
                 .imgs{
+                    transition: transform 0.8s;
+                    @media (min-width: 768px) {                                        
+                        transform: translateX(-80vw);                    
+                    }
                     text-align: right;
                     .img-fluid{
                         margin-bottom: 10px;
                     }
                 }
-                &.show{
-                    display: block;
-                    opacity: 1;
-                }
             }
         }
         .galleries {
-            .gallery{                
-                display: none;
-                opacity: 0;
+            .page {
+                height: 0;
+                pointer-events: none;
+                z-index: -1;
+                transition: opacity 1s;
+                opacity: 0; 
                 &.show{
-                    display: block;
+                    pointer-events: auto;
+                    z-index: 10;
                     opacity: 1;
                 }
             }

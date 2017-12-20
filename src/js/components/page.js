@@ -1,6 +1,8 @@
 class Page {
     constructor(pageObj, index) {
       console.log("pageObj", pageObj)
+      this.title = pageObj.title;
+      this.route = pageObj.route;
       this.index = index;
       this.tags = pageObj.tags
       this.id = this._generateId();
@@ -8,10 +10,10 @@ class Page {
       this.template =
       `
       <div id="${this.id}" class="box col-lg-3 col-md-4 col-xs-6">
-          <a href="#${pageObj.title}" class="d-block mb-2 h-100">
-              <img class="img-fluid img-thumbnail" src="${pageObj.thumb}" title="${pageObj.title}">
+          <a href="#${this.route}" class="d-block mb-2 h-100">
+              <img class="img-fluid img-thumbnail" src="${pageObj.thumb}" title="${this.title}">
               <div class="caption">
-                <p>${pageObj.title}</p>
+                <p>${this.title}</p>
               </div>
           </a>
       </div>
@@ -49,7 +51,14 @@ class Page {
     hide(){
         if(!this.$el.hasClass('hide')){
             this.$el.toggleClass("hide")     
-        } 
+        }
+    }
+    getImages(){
+        imgs = []
+        this.$el.find('.img-fluid').each(() => {
+            imgs.push(this)
+        })
+        return imgs;
     }
     show(index){    
         if(this.$el.hasClass('hide')){
@@ -57,9 +66,8 @@ class Page {
         }
         if(index != null || index != undefined ) {
             this.index = index;
-        }
-            this.animateBox()
-        
+        }        
+        this.animateBox()        
     }
     render() {
         app.$pages.append(this.template);
@@ -71,13 +79,12 @@ class Page {
       this.$el = $('#' + this.id);
       this.$el.on('click', function(ev){
         if(self.content != null){            
-          self.content.show();
-          app.$curPage = self.content.$el;
-          app.$pages.addClass('hide');         
+            app.goToPage(self.route);
         }
       })
     }    
     animateBox(){
+        
         var w = $(window).width();
         var isCentralized, isMobile;
         if(w >= 992){
@@ -93,19 +100,17 @@ class Page {
         // calc 
         var width = this.$el.width();
         var height = this.$el.outerHeight();
-        var margin = 5;      
+        var marginBottom = 15;
+        var marginLeft = 10;      
         var appWidth = app.$el.width();
-
-        var maxCols = Math.floor(appWidth/(width + margin)) 
+        var maxCols = Math.floor(appWidth/(width + marginLeft*2)) 
         var col = this.index % maxCols;
         var row = Math.floor(this.index / maxCols);                 
-        var x = col * width;
-        var y = row * width;
+        var x = col * (width + marginLeft*2);
+        var y = row * (width + marginBottom*2);
 
-        var rest = appWidth - ((width + margin*2)*maxCols)
-
+        var rest = appWidth - ((width + marginLeft*2)*maxCols)
         if(true) console.log("width", width, "w", w)
-
         if(isCentralized && !isMobile){
             this.$el.parent().css('margin-left',rest/2+'px');
         } else {
@@ -116,11 +121,7 @@ class Page {
         if(!isMobile){
             this.$el.css({transform: 'translateX('+x+'px) translateY('+y+'px)'})
         } else {
-            this.$el.css({transform: 'translateX('+0+'px) translateY('+0+'px)'})
-        }
-        
-        function transition(){
-            
+            this.$el.css({transform: 'translateX('+0+'px) translateY('+0+'px)'})            
         }
     }
   }  
