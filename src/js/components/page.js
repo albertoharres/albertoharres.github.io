@@ -1,6 +1,5 @@
 class Page {
     constructor(pageObj, index) {
-      console.log("pageObj", pageObj)
       this.title = pageObj.title;
       this.route = pageObj.route;
       this.index = index;
@@ -9,8 +8,8 @@ class Page {
       this._setContent(pageObj)      
       this.template =
       `
-      <div id="${this.id}" class="box col-lg-3 col-md-4 col-xs-6">
-          <a href="#${this.route}" class="d-block mb-2 h-100">
+      <div id="${this.id}" class="box col-lg-3 col-md-3 col-xs-3">
+          <a href="#${this.route}" class="d-block mb-3 h-100">
               <img class="img-fluid img-thumbnail" src="${pageObj.thumb}" title="${this.title}">
               <div class="caption">
                 <p>${this.title}</p>
@@ -84,7 +83,6 @@ class Page {
       })
     }    
     animateBox(){
-        
         var w = $(window).width();
         var isCentralized, isMobile;
         if(w >= 992){

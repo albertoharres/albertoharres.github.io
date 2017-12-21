@@ -33,8 +33,10 @@ class App {
     var self = this;
     // on tag click
     this.$tagcloud.on('click', function(event){
+
+      // to do, if page is open, disable all tags, enable only clicked, close current project and already filter boxes
       //if active, disable 
-      if($( event.target ).hasClass('active')){
+      if($( event.target ).hasClass('active') && self.route == ""){
         $( event.target ).toggleClass('active');
         // clear filter
         self.onTagClick(null);
@@ -46,6 +48,11 @@ class App {
         $( event.target ).toggleClass('active');
         // set filter by tagname
         self.onTagClick(event.target.innerText);
+
+        if(self.route != ""){          
+          if(self.curPage.$el.hasClass('show')) self.curPage.$el.toggleClass('show')
+          self.goToPage("")
+        }
       }      
     })
     // home || title
@@ -54,7 +61,6 @@ class App {
       self.reset();
       if(self.$pages.hasClass('hide')){       
         self.$pages.toggleClass('hide')
-        console.log(self.$curPage)
         if(self.curPage.$el.hasClass('show')) self.curPage.$el.toggleClass('show')
       }   
     })
@@ -91,6 +97,9 @@ class App {
     });
   }
   goToPage(route){
+    console.log("route", route)
+    this.route = route;
+    $("html, body").animate({ scrollTop: 0 }, "slow");
     //console.log("route", route)
     var self = this;
     var hasFound = false;

@@ -22,7 +22,10 @@ class Gallery {
       this.template =
       `
       <div class="page gallery" id="${this.id}">
-          <h3 class="my-4 text-center ${isBig ? '' : 'text-lg-left'}">${this.title}</h1>
+          <div class="text mb-4">
+            <h3 class="text-center ${isBig ? '' : 'text-lg-left'}">${this.title}</h1>
+            <p class="text-center ${isBig ? '' : 'text-lg-left'}">asiod iojas diojasd ioas djioasd oijasd oijasd oiasdj oias djasdio jasd oiasdj ioasd j</p>
+          </div>
           <div class="row text-center ${isBig ? '' : 'text-lg-left'}">
             ${pageObj.imgs.map(img => 
                 `              

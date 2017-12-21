@@ -53,7 +53,6 @@ a {
     }
     #home {
         #tagcloud {
-            padding-bottom: 20px;
             pointer-events: none;
             .tag {
                 display: -webkit-inline-box;
@@ -169,7 +168,7 @@ a {
         }
         .galleries {
             .page {
-                h3 {
+                .text {
                     transition: transform 0.8s;
                     @media (min-width: 768px) {                                        
                         transform: translateX(-50vw);                    
@@ -183,7 +182,7 @@ a {
                     }
                 }
                 
-                height: 0;
+                height: 0;                
                 pointer-events: none;
                 z-index: -1;
                 transition: opacity 1s;
@@ -192,7 +191,7 @@ a {
                     .gallery-img{
                         transform: translateY(0);                    
                     }
-                    h3 {
+                    .text {
                         transform: translateX(0);   
                     }
 
