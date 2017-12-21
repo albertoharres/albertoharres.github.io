@@ -14,6 +14,9 @@ body {
 .caption {
     color: white;
 }
+* {
+    color: gainsboro;
+}
 
 a {
     opacity: 0.55;
@@ -31,6 +34,8 @@ a {
         .title {
             @media (min-width: 992px) {
                 display: -webkit-inline-box;
+                display: -moz-inline-box;
+                display: inline-box;
             }
             letter-spacing: 0.3em;
         }
@@ -41,6 +46,8 @@ a {
             @media (min-width: 992px) {
                 margin-left: 20px;
                 display: -webkit-inline-box;
+                display: -moz-inline-box;
+                display: inline-box;
             }
     }
     }
@@ -50,6 +57,8 @@ a {
             pointer-events: none;
             .tag {
                 display: -webkit-inline-box;
+                display: -moz-inline-box;
+                display: inline-box;
                 transition: all 0.3s;
                 pointer-events: auto;
                 margin: 0px 5px;
@@ -114,10 +123,27 @@ a {
                 }
             }
             .project{
+                .row{
+                    @media (max-width: 768px) {                                                                                                            
+                        display: -webkit-box;
+                        display: -moz-box;
+                        display: box;
+                                        
+                        -webkit-box-orient: vertical;
+                        -moz-box-orient: vertical;
+                        box-orient: vertical;
+                    }
+                }
                 .text{
                     transition: transform 0.8s;
                     @media (min-width: 768px) {                                        
-                        transform: translateX(100vw);                    
+                        transform: translateX(500px);                    
+                    }
+
+                    @media (max-width: 768px) {                                                                                    
+                        -webkit-box-ordinal-group: 1;
+                        -moz-box-ordinal-group: 1;
+                        box-ordinal-group: 1;
                     }
                     .project-title {
                         margin-top: 0px !important;
@@ -126,7 +152,13 @@ a {
                 .imgs{
                     transition: transform 0.8s;
                     @media (min-width: 768px) {                                        
-                        transform: translateX(-80vw);                    
+                        transform: translateY(30vw);                    
+                    }
+
+                    @media (max-width: 768px) {                                                                                    
+                        -webkit-box-ordinal-group: 2;
+                        -moz-box-ordinal-group: 2;
+                        box-ordinal-group: 2;
                     }
                     text-align: right;
                     .img-fluid{
@@ -137,12 +169,33 @@ a {
         }
         .galleries {
             .page {
+                h3 {
+                    transition: transform 0.8s;
+                    @media (min-width: 768px) {                                        
+                        transform: translateX(-50vw);                    
+                    }
+                }
+
+                .gallery-img{
+                    transition: transform 0.8s;
+                    @media (min-width: 768px) {                                        
+                        transform: translateY(30vw);                    
+                    }
+                }
+                
                 height: 0;
                 pointer-events: none;
                 z-index: -1;
                 transition: opacity 1s;
                 opacity: 0; 
                 &.show{
+                    .gallery-img{
+                        transform: translateY(0);                    
+                    }
+                    h3 {
+                        transform: translateX(0);   
+                    }
+
                     pointer-events: auto;
                     z-index: 10;
                     opacity: 1;
@@ -150,4 +203,20 @@ a {
             }
         }
     }    
+}
+
+#meus-elementos-secretos {
+    position: absolute;
+    top: 0;    
+    .el {
+        position: absolute;
+        opacity: 1;
+        //display: none;
+        transition: opacity 0.5s;
+        
+        &.show {
+            display: block;
+            opacity: 1;
+        }
+    }
 }

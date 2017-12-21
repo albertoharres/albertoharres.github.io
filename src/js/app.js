@@ -7,17 +7,27 @@ class App {
     this.$tagcloud = $('#tagcloud');
     this.$pages = $('#app .pages')
     this.$projects = $('#app .projects');
-    this.$galleries = $('#app .galleries')
+    this.$galleries = $('#app .galleries');
+    this.$secretElements = $('#meus-elementos-secretos');
     this.$curPage = null;
     this.tagcloud = null;
     this.route = "";
     this.pages = [];
+    this.secretElements = [];
   }
   init(json){   
     this.delegateEvents();
     var pathArray = window.location.pathname.split( '/' );
     this.route = window.location.hash.substr(1);
-    this.loadJson(json)    
+    this.loadJson(json)  
+    this.initSecretElements();     
+  }
+  initSecretElements(){
+    var self = this;
+    this.$secretElements.find('.el').each(function( index ) {                  
+      var secretEl = new SecretElement($(this))     
+      self.secretElements.push(secretEl);    
+    }); 
   }
   delegateEvents(){
     var self = this;
@@ -49,11 +59,17 @@ class App {
       }   
     })
     // on window resize
-    $( window ).resize(function(ev) {     
+    $( window ).resize(function(ev) {       
       for(var p in self.pages){
         self.pages[p].animateBox();   
       }      
     });
+    $( window ).on('scroll', function(ev){ 
+      var currentScroll = self.getCurrentScroll()        
+      for(var s in self.secretElements){
+       self.secretElements[s].update(currentScroll)
+      }                 
+    })
   }
   loadJson(json){
     var tags = [];
@@ -101,7 +117,6 @@ class App {
             }
           }
         });
-
         //} else {
         //  this.preloadImages(this.curPage.getImages(), function(){
         //    console.log("show")
@@ -114,9 +129,6 @@ class App {
       if(this.$pages.hasClass('hide')) this.$pages.toggleClass('hide')
     }                 
   } 
-  goHome(){
-
-  }
   reset(){
     // reset tags
     this.onTagClick(null);
@@ -183,6 +195,18 @@ class App {
       });
     });
   };
+  getWindowSize(){
+    return {
+        "w": ($(document).width() - $(window).width()),
+        "h": ($(document).height() - $(window).height())
+    }
+  }  
+  getCurrentScroll(){
+    return {
+      "x": $( window ).scrollTop(),
+      "y": $( window ).scrollLeft()
+    }
+  }    
 }
 
 app = new App();

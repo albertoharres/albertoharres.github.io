@@ -1,17 +1,32 @@
 class Gallery {
     constructor(pageObj) {
-	  console.log(pageObj)    
       this.title = pageObj.title;
       this.texts = pageObj.texts
+      var colSize = 6; 
+      var isBig = false;
+     
+      switch(pageObj.gallerySize){
+        case "small":
+        colSize = 4;
+          break;
+        case "medium":
+        colSize = 6;
+            break;
+        case "big":
+        isBig = true;
+        colSize = 12;
+            break;
+      }
+
       this.id = this._generateId();  
       this.template =
       `
       <div class="page gallery" id="${this.id}">
-          <h3 class="my-4 text-center text-lg-left">${this.title}</h1>
-          <div class="row text-center text-lg-left">
+          <h3 class="my-4 text-center ${isBig ? '' : 'text-lg-left'}">${this.title}</h1>
+          <div class="row text-center ${isBig ? '' : 'text-lg-left'}">
             ${pageObj.imgs.map(img => 
                 `              
-                <div class="col-lg-6 col-md-4 col-xs-6">
+                <div class="gallery-img col-lg-${colSize} col-md-4 col-xs-6">
                     <a href="#" class="d-block mb-4 h-100">
                         <img class="img-fluid img-thumbnail" src="${img.src}" alt="">
                         <div class="caption text-center">

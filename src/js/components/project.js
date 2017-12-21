@@ -1,6 +1,5 @@
 class Project {
     constructor(pageObj) {
-	  console.log(pageObj)    
       this.title = pageObj.title;   	  
       this.texts = pageObj.texts;
       this.id = this._generateId();   
@@ -17,7 +16,7 @@ class Project {
         </div>                
     </div>
 </div>
-    `
+      `
     this.render();
     }
     _generateId(){

@@ -35,6 +35,7 @@
           {"pt":"Vue"}, {"pt":"Web"}, {"pt":"JavaScript"}
         ],
         "type": "gallery",
+        "gallerySize": "big",
         "subtitle": "this is my subtitle",        
         "imgs": [
           {
