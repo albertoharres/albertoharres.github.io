@@ -1,0 +1,220 @@
+{
+    "data": [
+      {
+        "title": "titulo 1",
+        "route": "1",
+        "thumb": "../assets/1.png",
+        "type": "project",
+        "description": "esse é um projeto X",
+        "tags": [
+            {"pt":"Processing"}, {"pt":"openFramworks"}, {"pt":"JavaScript"}
+          ],
+        "type": "project",
+        "subtitle": "this is my subtitle",
+        "texts": [
+          {"text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim."},
+          {"text": "Abra ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim."}
+        ],
+        "imgs": [
+          {
+            "src": "http://placehold.it/750x500",
+            "caption": "this is a picture 1"
+          },
+          {
+            "src": "http://via.placeholder.com/600x900",
+            "caption": "this is a picture 2"
+          }
+        ]          
+      },
+      {
+        "title": "titulo 2 ",
+        "route": "2",
+        "thumb": "../assets/1.png",
+        "description": "esse é um projeto Y",
+        "tags": [
+          {"pt":"Vue"}, {"pt":"Web"}, {"pt":"JavaScript"}
+        ],
+        "type": "gallery",
+        "gallerySize": "big",
+        "subtitle": "this is my subtitle",        
+        "imgs": [
+          {
+            "src": "http://placehold.it/750x500",
+            "caption": "this is a picture 1"
+          },
+          {
+            "src": "http://via.placeholder.com/1024x800",
+            "caption": "this is a picture 2"
+          },
+          {
+            "src": "http://placehold.it/900x900",
+            "caption": "this is a picture 1"
+          },
+          {
+            "src": "http://via.placeholder.com/1280x1024",
+            "caption": "this is a picture 2"
+          }
+        ]          
+      },
+      {
+          "title": "titulo 3 ",
+          "route": "3",
+          "thumb": "../assets/1.png",
+          "type": null,
+          "description": "esse é um projeto Z",
+          "tags": [
+            {"pt":"Processing"}, {"pt":"python"}, {"pt":"Machine Learning"}, {"pt":"JavaScript"}
+        ]
+      },
+      {
+          "title": "titulo 4 ",
+          "route": "4",
+          "thumb": "../assets/1.png",
+          "type": null,
+          "description": "esse é um projeto Y",
+          "tags": [
+            {"pt":"sound"}, {"pt":"sculpture"}
+        ]
+      },
+      {
+        "title": "titulo 5 ",
+        "route": "5",
+        "thumb": "../assets/1.png",
+        "description": "esse é um projeto Y",
+        "tags": [
+          {"pt":"Vue"}, {"pt":"Web"}, {"pt":"JavaScript"}
+        ],
+        "type": "gallery",
+        "gallerySize": "small",
+        "subtitle": "this is my subtitle",        
+        "imgs": [
+          {
+            "src": "http://placehold.it/750x500",
+            "caption": "this is a picture 1"
+          },
+          {
+            "src": "http://via.placeholder.com/1024x800",
+            "caption": "this is a picture 2"
+          },
+          {
+            "src": "http://placehold.it/900x900",
+            "caption": "this is a picture 1"
+          },
+          {
+            "src": "http://via.placeholder.com/1280x1024",
+            "caption": "this is a picture 2"
+          }
+        ]          
+      },
+      {
+        "title": "titulo 6 ",
+        "route": "6",
+        "thumb": "../assets/1.png",
+        "description": "esse é um projeto Y",
+        "tags": [
+          {"pt":"Vue"}, {"pt":"Web"}, {"pt":"JavaScript"}
+        ],
+        "type": "gallery",
+        "gallerySize": "medium",
+        "subtitle": "this is my subtitle",        
+        "imgs": [
+          {
+            "src": "http://placehold.it/750x500",
+            "caption": "this is a picture 1"
+          },
+          {
+            "src": "http://via.placeholder.com/1024x800",
+            "caption": "this is a picture 2"
+          },
+          {
+            "src": "http://placehold.it/900x900",
+            "caption": "this is a picture 1"
+          },
+          {
+            "src": "http://via.placeholder.com/1280x1024",
+            "caption": "this is a picture 2"
+          },
+          {
+            "src": "http://placehold.it/750x500",
+            "caption": "this is a picture 1"
+          },
+          {
+            "src": "http://via.placeholder.com/1024x800",
+            "caption": "this is a picture 2"
+          },
+          {
+            "src": "http://placehold.it/900x900",
+            "caption": "this is a picture 1"
+          },
+          {
+            "src": "http://via.placeholder.com/1280x1024",
+            "caption": "this is a picture 2"
+          },
+          {
+            "src": "http://placehold.it/750x500",
+            "caption": "this is a picture 1"
+          },
+          {
+            "src": "http://via.placeholder.com/1024x800",
+            "caption": "this is a picture 2"
+          },
+          {
+            "src": "http://placehold.it/900x900",
+            "caption": "this is a picture 1"
+          },
+          {
+            "src": "http://via.placeholder.com/1280x1024",
+            "caption": "this is a picture 2"
+          },
+          {
+            "src": "http://placehold.it/750x500",
+            "caption": "this is a picture 1"
+          },
+          {
+            "src": "http://via.placeholder.com/1024x800",
+            "caption": "this is a picture 2"
+          },
+          {
+            "src": "http://placehold.it/900x900",
+            "caption": "this is a picture 1"
+          },
+          {
+            "src": "http://via.placeholder.com/1280x1024",
+            "caption": "this is a picture 2"
+          }
+        ]          
+      },
+      {
+        "title": "titulo 7",
+        "route": "7",
+        "thumb": "../assets/1.png",
+        "type": "project",
+        "description": "esse é um projeto X",
+        "tags": [
+            {"pt":"Processing"}, {"pt":"openFramworks"}, {"pt":"JavaScript"}
+          ],
+        "type": "project",
+        "subtitle": "this is my subtitle",
+        "texts": [
+          {"text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim."},
+          {"text": "Abra ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim."},
+          {"text": "Abra ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim."},
+          {"text": "Abra ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim."}
+        ],
+        "imgs": [
+          {
+            "src": "http://placehold.it/1024x960",
+            "caption": "this is a picture 1"
+          },
+          {
+            "src": "http://placehold.it/300x300",
+            "caption": "this is a picture 1"
+          },
+          {
+            "src": "http://via.placeholder.com/600x900",
+            "caption": "this is a picture 2"
+          }
+        ]          
+      }
+    ]
+  }
