@@ -8,17 +8,6 @@
     100%   { opacity: 1;}
 }
 
-@keyframes pageIn {
-    0%     {  opacity: 0; overflow: hidden;}
-    100%   { opacity: 1;} 
-}
-
-@keyframes pageOut {
-    0%     { opacity: 1;}
-    90%    {opacity: 0; }
-    100%   {  overflow: hidden;} 
-}
-
 body {
     background: grey;   
 }
@@ -30,9 +19,9 @@ body {
     color: gainsboro;
 }
 
-html, body {
+html {
     max-width: 100%;
-//    overflow-x: hidden;
+    overflow-x: hidden;
 }
 
 a {
@@ -124,17 +113,12 @@ a {
                 height: 0;
                 pointer-events: none;
                 z-index: -1;
-                //transition: opacity 1s;
-                //opacity: 0; 
-                animation: pageOut 1s;
-                animation-fill-mode:forwards;
-                -webkit-animation-fill-mode: forwards;
+                transition: opacity 1s;
+                opacity: 0; 
                 &.show{
+                    opacity: 1;
                     pointer-events: auto;
                     z-index: 10;
-                    animation: pageIn 1s;
-                    animation-fill-mode:forwards;
-                    -webkit-animation-fill-mode: forwards;
                     .imgs{
                         transform: translateX(0);                        
                     }
@@ -207,11 +191,8 @@ a {
                 height: 0;                
                 pointer-events: none;
                 z-index: -1;
-               // transition: opacity 1s;
-               // opacity: 0; 
-               animation: pageOut 1s;
-               animation-fill-mode:forwards;
-               -webkit-animation-fill-mode: forwards;
+                transition: opacity 1s;
+                opacity: 0; 
                 &.show{
                     .gallery-img{
                         transform: translateY(0);                    
@@ -222,10 +203,7 @@ a {
 
                     pointer-events: auto;
                     z-index: 10;
-                   // opacity: 1;
-                   animation: pageIn 1s;
-                   animation-fill-mode:forwards;
-                   -webkit-animation-fill-mode: forwards;
+                   opacity: 1;
                 }
             }
         }
