@@ -1,13 +1,14 @@
 {
     "data": [
       {
-        "title": "titulo 1",
-        "route": "1",
+        "title": "When Speaking of Tongues",
+        "route": "wen",
         "thumb": "../assets/wen/thumb.jpg",
         "type": "project",
         "description": "esse é um projeto X",
         "tags": [
-            {"pt":"Processing"}, {"pt":"openFramworks"}, {"pt":"JavaScript"}
+            {"pt":"Performance"}, {"pt":"openFramworks"}, {"pt":"JavaScript"}, {"pt":"Dance"}, 
+            {"pt":"VR"}, {"pt":"Unity3d"}, {"pt":"Projection Mapping"}    
           ],
         "type": "project",
         "subtitle": "this is my subtitle",
@@ -21,9 +22,13 @@
             "caption": "this is a picture 2"
           },
           {
+            "src": "../assets/wen/apto.jpeg",
+            "caption": "this is a picture 2"
+          },
+          {
             "src": "../assets/wen/show.jpeg",
             "caption": "this is a picture 2"
-          }
+          }                  
         ]          
       },
       {
