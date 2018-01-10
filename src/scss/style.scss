@@ -131,7 +131,7 @@ a {
                     opacity: 1;
                     pointer-events: auto;
                     z-index: 10;
-                    .imgs{
+                    .content{
                         transform: translateX(0);                        
                     }
                     .text{
@@ -166,10 +166,11 @@ a {
                         margin-top: 0px !important;
                     }
                 }          
-                .imgs{
+                .content{
                     transition: transform 0.8s;
                     @media (min-width: 768px) {                                        
-                        transform: translateY(30vw);                    
+                        transform: translateY(30vw); 
+                        max-width: 57%;                   
                     }
 
                     @media (max-width: 768px) {                                                                                    
@@ -180,6 +181,7 @@ a {
                     }
                     text-align: right;
                     .img-fluid{
+                        width: 100%;
                         margin-bottom: 10px;
                     }
                 }

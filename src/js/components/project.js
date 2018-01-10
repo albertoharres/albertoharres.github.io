@@ -7,10 +7,10 @@ class Project {
       `
 <div class="page project" id="${this.id}">
     <div class="row">
-        <div class="imgs col-sm-auto">
+        <div class="content col-sm-auto">
             ${pageObj.imgs.map(img => `<img class="img-fluid" src="${img.src}" alt="">`).join('')}
         </div>
-        <div class="text col-sm-4">
+        <div class="text col-sm-5">
             <h3 class="project-title my-3">${this.title}</h3>
             ${this.texts.map(text => `<p>${text.text}</p>`).join('')} 
         </div>                
