@@ -175,10 +175,15 @@ a {
                         -webkit-box-ordinal-group: 2;
                         -moz-box-ordinal-group: 2;
                         box-ordinal-group: 2;
+                        text-align: center;
                     }
                     text-align: right;
                     .img-fluid{
+                        max-width: 100%;
                         margin-bottom: 10px;
+                        display: flex;
+                        align-items: center;
+                        flex-wrap: wrap;
                     }
                 }
             }
