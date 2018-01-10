@@ -83,7 +83,7 @@ a {
         .pages {            
             transition: opacity 1s;
             .box{
-                max-width: 300px;
+                
                 .img-thumbnail {
                     padding: 0; 
                     border: none;
@@ -94,6 +94,7 @@ a {
                 transition: transform 0.5s, opacity 0.5s;
                 min-height: 0;
                 @media (min-width: 768px) {
+                    max-width: 300px;
                     position: absolute;                    
                 }
                 @media (max-width: 767px) {
@@ -175,15 +176,11 @@ a {
                         -webkit-box-ordinal-group: 2;
                         -moz-box-ordinal-group: 2;
                         box-ordinal-group: 2;
-                        text-align: center;
+                        
                     }
                     text-align: right;
                     .img-fluid{
-                        max-width: 100%;
                         margin-bottom: 10px;
-                        display: flex;
-                        align-items: center;
-                        flex-wrap: wrap;
                     }
                 }
             }
