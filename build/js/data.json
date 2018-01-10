@@ -3,7 +3,7 @@
       {
         "title": "titulo 1",
         "route": "1",
-        "thumb": "../assets/1.png",
+        "thumb": "../assets/wen/thumb.jpg",
         "type": "project",
         "description": "esse é um projeto X",
         "tags": [

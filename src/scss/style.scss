@@ -8,6 +8,11 @@
     100%   { opacity: 1;}
 }
 
+html {
+    box-sizing: content-box;
+}
+
+
 body {
     background: grey;   
 }
@@ -25,11 +30,11 @@ html {
 }
 
 a {
-    opacity: 0.55;
+    opacity: 0.75;
     color: white;
     transition: opacity 0.3s;
     &:hover{
-        opacity: 0.8;
+        opacity: 0.95;
         color: white;
         text-decoration: none;
     }
@@ -78,6 +83,12 @@ a {
         .pages {            
             transition: opacity 1s;
             .box{
+                max-width: 300px;
+                .img-thumbnail {
+                    padding: 0; 
+                    border: none;
+                    border-radius: 0;
+                }
                 pointer-events: auto;
                 opacity: 1;
                 transition: transform 0.5s, opacity 0.5s;
