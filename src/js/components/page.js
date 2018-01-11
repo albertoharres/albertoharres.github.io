@@ -85,21 +85,23 @@ class Page {
     animateBox(){
         var w = $(window).width();
         var isCentralized, isMobile;
+        var marginBottom = 15;
+        var marginLeft = 10;    
         if(w >= 992){
           isCentralized = false
         } else {
-          isCentralized = true;
-          if(w < 768){
+          isCentralized = true;         
+          if(w < 750){
             isMobile = true;
           } else {
             isMobile = false;
+            marginLeft = 10;
           }
         }      
+        console.log("marginleft", marginLeft);
         // calc 
-        var width = this.$el.width();
-        var height = this.$el.outerHeight();
-        var marginBottom = 15;
-        var marginLeft = 10;      
+        var width = this.$el.children().first().width();
+        var height = this.$el.outerHeight();         
         var appWidth = app.$el.width();
         var maxCols = Math.floor(appWidth/(width + marginLeft*2)) 
         var col = this.index % maxCols;

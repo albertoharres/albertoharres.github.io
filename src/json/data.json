@@ -34,7 +34,7 @@
       {
         "title": "titulo 2 ",
         "route": "2",
-        "thumb": "../assets/1.png",
+        "thumb": "http://placehold.it/500x500",
         "description": "esse é um projeto Y",
         "tags": [
           {"pt":"Vue"}, {"pt":"Web"}, {"pt":"JavaScript"}
@@ -64,7 +64,7 @@
       {
           "title": "titulo 3 ",
           "route": "3",
-          "thumb": "../assets/1.png",
+          "thumb": "http://placehold.it/500x500",
           "type": null,
           "description": "esse é um projeto Z",
           "tags": [
@@ -74,7 +74,7 @@
       {
           "title": "titulo 4 ",
           "route": "4",
-          "thumb": "../assets/1.png",
+          "thumb": "http://placehold.it/500x500",
           "type": null,
           "description": "esse é um projeto Y",
           "tags": [
@@ -84,7 +84,7 @@
       {
         "title": "titulo 5 ",
         "route": "5",
-        "thumb": "../assets/1.png",
+        "thumb": "http://placehold.it/500x500",
         "description": "esse é um projeto Y",
         "tags": [
           {"pt":"Vue"}, {"pt":"Web"}, {"pt":"JavaScript"}
@@ -114,7 +114,7 @@
       {
         "title": "titulo 6 ",
         "route": "6",
-        "thumb": "../assets/1.png",
+        "thumb": "http://placehold.it/500x500",
         "description": "esse é um projeto Y",
         "tags": [
           {"pt":"Vue"}, {"pt":"Web"}, {"pt":"JavaScript"}
@@ -192,7 +192,7 @@
       {
         "title": "titulo 7",
         "route": "7",
-        "thumb": "../assets/1.png",
+        "thumb": "http://placehold.it/500x500",
         "type": "project",
         "description": "esse é um projeto X",
         "tags": [

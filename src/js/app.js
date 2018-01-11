@@ -33,7 +33,6 @@ class App {
     var self = this;
     // on tag click
     this.$tagcloud.on('click', function(event){
-
       // to do, if page is open, disable all tags, enable only clicked, close current project and already filter boxes
       //if active, disable 
       if($( event.target ).hasClass('active') && self.route == ""){
@@ -48,7 +47,6 @@ class App {
         $( event.target ).toggleClass('active');
         // set filter by tagname
         self.onTagClick(event.target.innerText);
-
         if(self.route != ""){          
           if(self.curPage.$el.hasClass('show')) self.curPage.$el.toggleClass('show')
           self.goToPage("")
@@ -64,6 +62,12 @@ class App {
         if(self.curPage.$el.hasClass('show')) self.curPage.$el.toggleClass('show')
       }   
     })
+
+    // bio
+    $('#bio').on('click', function(event){
+      
+    })
+
     // on window resize
     $( window ).resize(function(ev) {       
       for(var p in self.pages){

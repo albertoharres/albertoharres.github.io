@@ -50,10 +50,19 @@ a {
             }
             letter-spacing: 0.3em;
         }
-        .menu{
+        .menu{            
             a {
                 padding: 5px;
             }
+
+            .lang {
+                display: inline;
+                margin-left: 2vw;
+                a {                
+                    padding: 5px 0;
+                }
+            }
+
             @media (min-width: 992px) {
                 margin-left: 20px;
                 display: -webkit-inline-box;
@@ -83,18 +92,20 @@ a {
         .pages {            
             transition: opacity 1s;
             .box{
-                
                 .img-thumbnail {
                     padding: 0; 
                     border: none;
                     border-radius: 0;
+                }
+                .caption {
+                    font-size: 0.85rem;
                 }
                 pointer-events: auto;
                 opacity: 1;
                 transition: transform 0.5s, opacity 0.5s;
                 min-height: 0;
                 @media (min-width: 768px) {
-                    max-width: 300px;
+                   // max-width: 300px;
                     position: absolute;                    
                 }
                 @media (max-width: 767px) {
