@@ -180,11 +180,13 @@ class App {
         if(!this.pages[p].hasTag(tagString)){
           this.pages[p].hide();
         } else {
-          this.pages[p].show(index);
+          this.pages[p].setIndex(index)
+          this.pages[p].show();
           index ++ ;
         }
       } else {
-        this.pages[p].show(index);
+        this.pages[p].setIndex(index)
+        this.pages[p].show();
         index ++ ;
       }      
     }

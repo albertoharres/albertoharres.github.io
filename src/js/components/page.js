@@ -59,14 +59,14 @@ class Page {
         })
         return imgs;
     }
-    show(index){    
+    show(){    
         if(this.$el.hasClass('hide')){
             this.$el.toggleClass("hide")                 
         }
-        if(index != null || index != undefined ) {
-            this.index = index;
-        }        
         this.animateBox()        
+    }
+    setIndex(index){
+      this.index = index;
     }
     render() {
         app.$pages.append(this.template);
