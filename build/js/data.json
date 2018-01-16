@@ -1,5 +1,5 @@
 {
-    "data": [
+    "pages": [
       {
         "title": "When Speaking of Tongues",
         "route": "wen",
@@ -220,6 +220,26 @@
             "caption": "this is a picture 2"
           }
         ]          
+      }      
+    ],
+    "bio":
+    {
+        "title": "bio",
+        "route": "bio",
+        "thumb": "",
+        "type": "project",
+        "description": "",
+        "tags": [],
+        "subtitle": "",
+        "texts": [
+          {"text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim."},
+          {"text": "Abra ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim."}
+        ],
+        "imgs": [
+          {
+            "src": "http://placehold.it/1024x960",
+            "caption": "this is a picture 1"
+          }
+        ]          
       }
-    ]
   }

@@ -35,7 +35,7 @@ class Project {
         return imgs;
     }
     show(){
-        console.log("show project!")
+        //console.log("show project!")
         this.isloaded = true;
         if(!this.$el.hasClass('show')) this.$el.toggleClass('show');
     }

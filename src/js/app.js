@@ -33,6 +33,10 @@ class App {
     var self = this;
     // on tag click
     this.$tagcloud.on('click', function(event){
+
+      console.log(event.target.innerText)
+
+
       // to do, if page is open, disable all tags, enable only clicked, close current project and already filter boxes
       //if active, disable 
       if($( event.target ).hasClass('active') && self.route == ""){
@@ -61,13 +65,7 @@ class App {
         self.$pages.toggleClass('hide')
         if(self.curPage.$el.hasClass('show')) self.curPage.$el.toggleClass('show')
       }   
-    })
-
-    // bio
-    $('#bio').on('click', function(event){
-      
-    })
-
+    })        
     // on window resize
     $( window ).resize(function(ev) {       
       for(var p in self.pages){
@@ -84,13 +82,15 @@ class App {
   loadJson(json){
     var tags = [];
     var self = this;
-    $.getJSON( json, function( data ) {  
-      $.each( data, function( key, val ) {    
-        for(var p in val){      
-          var page = new Page(val[p], p);      
-          self.pages.push(page);
-          val[p].tags.map(tag => tags.push(tag))
-        }
+    $.getJSON( json, function( data ) {        
+      $.each( data, function( key, val ) {        
+        if(key == "pages"){
+          for(var p in val){      
+            var page = new Page(val[p], p);      
+            self.pages.push(page);
+            val[p].tags.map(tag => tags.push(tag))
+          }
+        }        
       })
     }).done(function(){
       self.setTags(tags)
@@ -192,19 +192,19 @@ class App {
     }
   }
   preloadImages(imgs, callback) {
-    console.log("preload!")
+    //console.log("preload!")
     var count = imgs.length;
     if(count === 0) {
         callback();
     }
     var loaded = 0;
     $(imgs).each(function() {
-      console.log("onload")
+      //console.log("onload")
       $(this).on('load', function() {
         loaded++;
-        console.log("loaded", loaded)
+        //console.log("loaded", loaded)
         if (loaded === count) {
-            console.log("all loaded!")
+          //  console.log("all loaded!")
             callback();
         }
       });
